@@ -34,6 +34,7 @@ The "secret" should be pre-shared key between the server and the users.
 ###### Standard fields that can be used in a JWT token claim set
 Note: Although these are the standard and recommended fields you can use your own fields, a parte of the standard fields or a mix of both cases. 
 | Attribute | Name | Description |
+| --- | --- |
 | iss | Issuer | Identifies who issued the token. |
 | sub | Subject | Identifies the subject of the token. |
 | aud | Audience | Identifies the recipients that the token is for. Every token should have this attribute because if the principal that will process the token does not identify the principal in the audience attribute the token must be rejected.|
@@ -45,6 +46,7 @@ Note: Although these are the standard and recommended fields you can use your ow
 ###### Standard fields that can be used in the header of the JWT token
 Note: Bare minimum you should use the attributes tok and alg.
 | Attribute | Name | Description |
+| --- | --- |
 | typ | Token type | Identifies the type of the token. If present should be set to JWT. |
 | cty | Content type | If nested signing or encryption is employed, set it to JWT. |
 | alg | Message authentication code algorithm | Defines the algorithm to verify the signature of the token. Be aware that some of the supported algorithms are insecure.  |
