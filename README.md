@@ -27,7 +27,8 @@ The payload is composed by a set of claims defined by the API, in the sample api
 With this information the api can confirm who the user is, what he is allowed to use, when the token will expire, when the token was issued, the target audience of the token and who issued the token. As the token is encoded in Base64 this information can be easily read and changed by the end user but this info should be merely informative and should always be confirmed by the server itself.
 
 Lastely the the signature is composed by the resulting string of the cryptohraphic signing of algorithm specified in the header. 
-The signing process as such: `HMAC-SHA256(secret, base64urlEncoding(header) + '.' + base64urlEncoding(payload))`
+The signing process as such: 
+`HMAC-SHA256(secret, base64urlEncoding(header) + '.' + base64urlEncoding(payload))`
 The "secret" should be pre-shared key between the server and the users.
 
 ### Standard fields
@@ -56,6 +57,9 @@ Note: Bare minimum you should use the attributes typ and alg.
 | crit | Critical | A list of headers that the principal needs in order to accept the token. |
 
 ### Cons
-
++ Due to the way tokens work if you need to deactivate a user, you will need to wait until the last token generated to expire before the user is truly locked out of your system.
++ If a user needs to change their password and there is a token generated before the password change, this token will still be valid until it has expired.
++ There is no "true logout" as tokens are always valid until they expire and you cannot destroy tokens without breaking the "stateless-ness" of the JWT standard. 
++ Security consultant Time McLean has reported vulnerabilities in some JWT libraries that were using the alg attribute to validate tokens incorrectly
 
 ### Pros
