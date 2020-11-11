@@ -44,7 +44,7 @@ Note: Although these are the standard and recommended fields you can use your ow
 | jti | JWT ID | Unique identifier of the token. |
 
 ###### Standard fields that can be used in the header of the JWT token
-Note: Bare minimum you should use the attributes tok and alg.
+Note: Bare minimum you should use the attributes typ and alg.
 | Attribute | Name | Description |
 | ---       | ---  | ---         |
 | typ | Token type | Identifies the type of the token. If present should be set to JWT. |
